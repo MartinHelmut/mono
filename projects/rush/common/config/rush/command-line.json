@@ -1,0 +1,20 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/command-line.schema.json",
+  "commands": [
+    {
+      "commandKind": "bulk",
+      "name": "test",
+      "summary": "Test each project sources",
+      "description": "This looks for the 'test' npm-script in each package and executes it. The test npm-scripts will run the defined test suite.",
+      "enableParallelism": true,
+      "ignoreMissingScript": true
+    },
+    {
+      "commandKind": "global",
+      "name": "start",
+      "summary": "Start the application",
+      "description": "This command only starts the apps/app programm.",
+      "shellCommand": "node apps/app/dist/index.js"
+    }
+  ]
+}

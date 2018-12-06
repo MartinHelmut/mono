@@ -1,0 +1,17 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "prepare": "lerna bootstrap",
+    "build": "lerna run build",
+    "start": "lerna run start",
+    "test": "lerna run --parallel test"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^3.5.1",
+    "typescript": "^3.2.1"
+  }
+}

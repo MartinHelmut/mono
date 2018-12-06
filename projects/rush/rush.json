@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush.schema.json",
+  "rushVersion": "5.5.2",
+  "pnpmVersion": "2.15.1",
+  "nodeSupportedVersionRange": ">=8.9.4 <11.0.0",
+  "projectFolderMinDepth": 2,
+  "projectFolderMaxDepth": 2,
+  "projects": [
+     {
+       "packageName": "@scope/app",
+       "projectFolder": "apps/app"
+     },
+     {
+       "packageName": "@scope/utils",
+       "projectFolder": "libraries/utils"
+     }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "@lerna/app",
+  "version": "1.0.0",
+  "description": "Application managed with Lerna",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "Martin Fieber <info@martin-fieber.de>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "rm -fr dist && tsc -p tsconfig.json",
+    "test": "echo 'Many tests running ...'"
+  },
+  "dependencies": {
+    "@lerna/utils": "1.0.0"
+  }
+}

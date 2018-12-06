@@ -1,0 +1,21 @@
+{
+  "name": "@scope/app",
+  "version": "1.0.0",
+  "description": "Application managed with Rush.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "Martin Fieber <info@martin-fieber.de>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "rm -fr dist && tsc -p tsconfig.json",
+    "test": "echo 'Many tests running ...'"
+  },
+  "dependencies": {
+    "@rush/utils": "1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "3.2.1"
+  }
+}

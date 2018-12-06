@@ -1,0 +1,14 @@
+{
+  "name": "@lerna/utils",
+  "version": "1.0.0",
+  "description": "Utils library managed with Lerna",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "Martin Fieber <info@martin-fieber.de>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "rm -fr dist && tsc -p tsconfig.json",
+    "test": "echo 'Many tests running ...'"
+  }
+}

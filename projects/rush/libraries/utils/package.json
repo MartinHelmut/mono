@@ -1,0 +1,17 @@
+{
+  "name": "@scope/utils",
+  "version": "1.0.0",
+  "description": "Utils library managed with Rush.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "Martin Fieber <info@martin-fieber.de>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "rm -fr dist && tsc -p tsconfig.json",
+    "test": "echo 'Many tests running ...'"
+  },
+  "devDependencies": {
+    "typescript": "3.2.1"
+  }
+}

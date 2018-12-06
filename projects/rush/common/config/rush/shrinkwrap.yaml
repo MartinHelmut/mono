@@ -1,0 +1,37 @@
+dependencies:
+  '@rush-temp/app': 'file:projects/app.tgz'
+  '@rush-temp/utils': 'file:projects/utils.tgz'
+  typescript: 3.2.1
+packages:
+  /typescript/3.2.1:
+    dev: false
+    engines:
+      node: '>=4.2.0'
+    hasBin: true
+    resolution:
+      integrity: sha512-jw7P2z/h6aPT4AENXDGjcfHTu5CSqzsbZc6YlUIebTyBAq8XaKp78x7VcSh30xwSCcsu5irZkYZUSFP1MrAMbg==
+  'file:projects/app.tgz':
+    dependencies:
+      typescript: 3.2.1
+    dev: false
+    name: '@rush-temp/app'
+    resolution:
+      integrity: sha512-d64K3CedyS3aulBiC9PPO5xXDV3X23hGbl4Q+xSkBvNMl+F7tP1W303mEp2i2/1Mwxv2lgnw+NjECWUDWuzMyQ==
+      tarball: 'file:projects/app.tgz'
+    version: 0.0.0
+  'file:projects/utils.tgz':
+    dependencies:
+      typescript: 3.2.1
+    dev: false
+    name: '@rush-temp/utils'
+    resolution:
+      integrity: sha512-aVxeLNDkc76nGwbyJAHQtXGguGemkjgRqgZKmX0EtWfGFKp1TXub0yoXVr9XkdErojsUU4TDzFyA/aoaefl9cw==
+      tarball: 'file:projects/utils.tgz'
+    version: 0.0.0
+registry: 'https://registry.npmjs.org/'
+shrinkwrapMinorVersion: 9
+shrinkwrapVersion: 3
+specifiers:
+  '@rush-temp/app': 'file:./projects/app.tgz'
+  '@rush-temp/utils': 'file:./projects/utils.tgz'
+  typescript: 3.2.1

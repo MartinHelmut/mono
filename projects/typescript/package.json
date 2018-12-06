@@ -1,0 +1,13 @@
+{
+  "name": "root",
+  "private": true,
+  "main": "dist/src/app/index.js",
+  "scripts": {
+    "build": "tsc --build",
+    "start": "node dist/src/app/index.js",
+    "test": ""
+  },
+  "devDependencies": {
+    "typescript": "^3.2.1"
+  }
+}

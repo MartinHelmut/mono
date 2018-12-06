@@ -1,0 +1,15 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "build": "",
+    "start": "",
+    "test": ""
+  },
+  "workspaces": [
+    "@scope/*"
+  ],
+  "devDependencies": {
+    "typescript": "^3.2.1"
+  }
+}
