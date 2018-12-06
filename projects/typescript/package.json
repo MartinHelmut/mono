@@ -1,5 +1,6 @@
 {
   "name": "root",
+  "description": "Handling multi project setups with TypeScript",
   "private": true,
   "main": "dist/src/app/index.js",
   "scripts": {

@@ -1,11 +1,7 @@
 {
   "name": "root",
+  "description": "Handling multi project setups with Yarn",
   "private": true,
-  "scripts": {
-    "build": "",
-    "start": "",
-    "test": ""
-  },
   "workspaces": [
     "@scope/*"
   ],
