@@ -1,0 +1,13 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 592 166">
+  <defs>
+    <style>
+      .cls-4{font-family:OpenSans,Open Sans;font-weight:400}
+    </style>
+  </defs>
+  <text transform="translate(9.18 115.86)" font-size="151.28" fill="#00b1bf" font-family="STIXGeneral-Regular,STIXGeneral">
+    M.O.<tspan x="319.34" y="0" letter-spacing="-.01em">N</tspan><tspan x="426.6" y="0">.O</tspan>
+  </text>
+  <text transform="translate(14.7 150.63)" font-size="29.33" fill="#333" font-family="OpenSans-Semibold,Open Sans" font-weight="600">
+    M<tspan class="cls-4" x="27.07" y="0">onoRepo </tspan><tspan x="158.41" y="0">O</tspan><tspan x="181.5" y="0" letter-spacing="0" font-family="OpenSans,Open Sans" font-weight="400">ptions on a </tspan><tspan x="341.86" y="0">N</tspan><tspan class="cls-4" x="364.83" y="0">eutral </tspan><tspan x="452.98" y="0">O</tspan><tspan class="cls-4" x="476.07" y="0">pinion</tspan>
+  </text>
+</svg>
