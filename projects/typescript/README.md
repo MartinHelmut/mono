@@ -1,5 +1,7 @@
 # MonoRepo with TypeScript
 
+[Visit documentation website](https://www.typescriptlang.org/docs/handbook/project-references.html)
+
 ## Environment
 
 * Node.js >= 10

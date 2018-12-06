@@ -1,5 +1,7 @@
 # MonoRepo with Rush.js
 
+[Visit project website](https://rushjs.io/)
+
 ## Environment
 
 * Node.js >= 10
