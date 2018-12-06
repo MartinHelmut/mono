@@ -1,0 +1,9 @@
+{
+  "name": "presentation",
+  "version": "1.0.0",
+  "description": "Presentation slides about handling multi project setups aka. MonoRepos",
+  "main": "index.js",
+  "author": "Martin Fieber <info@martin-fieber.de>",
+  "license": "MIT",
+  "private": true
+}
