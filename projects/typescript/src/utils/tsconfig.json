@@ -3,6 +3,7 @@
     "compilerOptions": {
         "baseUrl": "./",
         "declarationMap": true,
+        "declaration": true,
         "composite": true
     },
     "include": [

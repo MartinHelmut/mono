@@ -8,10 +8,12 @@ footer: **Speaking about mono repos ...**, Martin Fieber (@MartinFieber) // Sinn
 
 ### (or lets call it "multi project management")
 
+^ - but the important thing is (next slide)
+
 ---
 
 ## [fit] ... there is more than one option,
-## and here they are.
+## **and here they are.**
 
 ---
 
@@ -44,23 +46,25 @@ footer: **Speaking about mono repos ...**, Martin Fieber (@MartinFieber) // Sinn
 
 # [fit] **Different tools**, different needs
 
-^ Depending on what you want to achieve, different ways to get there
-From full blown tools managing you projects to small install helper
+^ - Depending on what you want to achieve, there are different ways to get there
+- From full blown tools managing your whole projects, to small install helper
 
 ---
 
 # Some clarification
 
-^ Therefore, some clarification are needed
+^ - Therefore, some clarification are needed
+- An important one is that this is a quick overview
+- The goal is not to give you a deep dive, but I will provide links where you can get that
 
 ---
 
 ## [fit] No **A** versus **B**
 
-^ This is not a comparison
-Depending on what you need, you should choose the tool for your need
-I just want to show 4 options available
-This also means that this list will not be complete, there are more options still out there
+^ - This is not a direct comparison
+- Depending on what you need, you should choose the tool for your need
+- I just want to show 4 options available
+- This also means that this list will not be complete, there are more options still out there
 
 ---
 
@@ -70,7 +74,7 @@ This also means that this list will not be complete, there are more options stil
 
 # Number **1**, **2**, **3** and **4**
 
-^ Let's give this options a name ... (next slide)
+^ - Let's give this options a name ... (next slide)
 
 ---
 
@@ -88,8 +92,8 @@ This also means that this list will not be complete, there are more options stil
 
 # [fit] Setup
 
-^ First things first, I use the same projects for every example
-And this is how it looks like ... (next slide)
+^ - First things first, I use the same projects for every example
+- And this is how it looks like ... (next slide)
 
 ---
 
@@ -102,8 +106,8 @@ utils/
         index.ts
 ```
 
-^ Simple application that depends on utils
-Here is utils ... (next slide)
+^ - Simple application that depends on utils
+- Here is utils ... (next slide)
 
 ---
 
@@ -114,7 +118,8 @@ export function getHello(name: string): string {
 }
 ```
 
-^ And here is the app ... (next slide)
+^ - A function that gets exported
+- And here is the app ... (next slide)
 
 ---
 
@@ -125,19 +130,20 @@ import { getHello } from '@scope/utils';
 console.log(getHello('Everyone'));
 ```
 
-^ This is the basic setup that will be used for every example
+^ - This is the basic setup that will be used for every example
 
 ---
 
 # TypeScript "--build"
 
-^ Let's se how we can achieve this with the TypeScript compiler
+^ - Let's se how we can achieve this with the TypeScript compiler
 
 ---
 
 `npm i typescript`
 
-^ Overall can be installed with
+^ - Overall can be installed with
+- And the project setup looks like this (next slide)
 
 ---
 
@@ -155,8 +161,8 @@ root/
     tsconfig.json
 ```
 
-^ Here is the folder structure and you already see that the `tsconfig.json` defines projects
-The root `tsconfig.json` defines the basic compiler options ... (next slide)
+^ - Here is the folder structure and you already see that the `tsconfig.json` defines projects
+- The root `tsconfig.json` defines the basic compiler options ... (next slide)
 
 ---
 
@@ -166,16 +172,14 @@ The root `tsconfig.json` defines the basic compiler options ... (next slide)
         "module": "commonjs",
         "target": "es5",
         "strict": true,
-        "declaration": true,
         "baseUrl": "src",
-        "composite": true,
         "outDir": "./dist"
     }
 }
 ```
 
 ^ // tsconfig.json
-The tsconfig in my `src` folder defines my project references ... (next slide)
+- The tsconfig in my `src` folder defines my project references ... (next slide)
 
 ---
 
@@ -184,14 +188,14 @@ The tsconfig in my `src` folder defines my project references ... (next slide)
     "extends": "../tsconfig.json",
     "references": [
         { "path": "./app" },
-        { "path": "./utils }
+        { "path": "./utils" }
     ]
 }
 ```
 
 ^ // src/tsconfig.json
-The source config extends the compiler options and defines the project references
-And the project configurations add custom settings needed as well as the `composite` property to make it happen
+- The source config extends the compiler options and defines the project references
+- And the project configurations add custom settings needed as well as some required properties
 
 ---
 
@@ -201,19 +205,16 @@ And the project configurations add custom settings needed as well as the `compos
     "compilerOptions": {
         "baseUrl": "./",
         "declarationMap": true,
+        "declaration": true,
         "composite": true
     },
-    "include": [
-        "src/**/*"
-    ],
-    "exclude": [
-        "node_modules"
-    ]
+    "include": [ "src/**/*" ],
+    "exclude": [ "node_modules" ]
 }
 ```
 
 ^ // src/utils/tsconfig.json
-This extends the source config, defines some compiler options like the needed `composite` and includes necessary files
+- This extends the source config, defines some compiler options like the needed `composite` and includes necessary files
 
 ---
 
@@ -221,8 +222,8 @@ This extends the source config, defines some compiler options like the needed `c
 import { getHello } from '../utils';
 ```
 
-^ Imports from app to utils would look like this (relative imports)
-The `package.json` looks like this: (next slide)
+^ - Imports from app to utils would look like this (relative imports)
+- The `package.json` looks like this: (next slide)
 
 ---
 
@@ -241,7 +242,7 @@ The `package.json` looks like this: (next slide)
 }
 ```
 
-^ The build command is `tsc --build`.
+^ - The build command is `tsc --build`.
 
 ---
 
@@ -249,29 +250,32 @@ The `package.json` looks like this: (next slide)
 
 ---
 
-"By doing this, you can greatly improve build times, enforce logical separation between components, and organize your code in new and better ways."
+"By doing this, you can greatly improve build times, enforce logical separation between components, and organize your code ..."
 
-^ This is taken directly from TypeScrips documentation about this feature
-And more or less gives you the benefit, faster builds with TypeScript only projects
-But it would be more effort to get separate deployable packages out of this
-Also there is out-of-the-box no way to manage separated dependencies
+^ - This is taken directly from TypeScrips documentation about this feature
+- And more or less gives you the benefit, faster builds with TypeScript
+- Disadvantage is, that that there is a bit more needed to remove relative paths for projects
+- And it would be more effort to get separate deployable packages out of this
+- Also there is no out-of-the-box way to manage separated dependencies
 
 ---
 
 _typescriptlang.org/docs/handbook/project-references.html_
 
-^ And here you can find the documentation
+^ - And here you can find the documentation
 
 ---
 
 # Yarn workspaces
 
-^ Let's se how we can achieve multi project management with Yarn workspaces
-How to install Yarn you can find here: (next slide)
+^ - Let's see how we can achieve multi project management with Yarn workspaces
+- How to install Yarn you can find here: (next slide)
 
 ---
 
 _yarnpkg.com/docs/install_
+
+^ - The project will look like the following (next slide)
 
 ---
 
@@ -291,9 +295,9 @@ root/
     package.json
 ```
 
-^ Here is the folder structure
-Here you see that this more resembles separated packages
-The folder `@scope` is intended to get imports like: (next slide)
+^ - Here is the folder structure
+- Here you see that this more resembles separated packages
+- The folder `@scope` is intended to get imports like: (next slide)
 
 ---
 
@@ -301,7 +305,7 @@ The folder `@scope` is intended to get imports like: (next slide)
 import { getHello } from '@scope/utils';
 ```
 
-^ The workspace setting is included inside the package.json (next slide)
+^ - The workspace setting is included inside your package.json (next slide)
 
 ---
 
@@ -318,9 +322,9 @@ import { getHello } from '@scope/utils';
 }
 ```
 
-^ This defines that everything in `@scope` is a workspace
-This will hoist the dependencies to the root
-Therefore if I execute yarn ... (next slide)
+^ - This defines that everything in `@scope` is a workspace
+- This will hoist the dependencies to the root
+- Therefore if I execute yarn ... (next slide)
 
 ---
 
@@ -328,8 +332,8 @@ Therefore if I execute yarn ... (next slide)
 $ yarn
 ```
 
-^ It will install all the dependencies on root level.
-And connects the inner dependencies, e.g.: (next slide)
+^ - It will install all the dependencies on root level.
+- And connects the inner dependencies, e.g.: (next slide)
 
 ---
 
@@ -341,9 +345,10 @@ And connects the inner dependencies, e.g.: (next slide)
 }
 ```
 
-^ But Yarn will not help redirecting commands to every sub-project
-So I need to build all by packages
-Or I combine this with TypeScript --build if I use TypeScript projects
+^ - But Yarn will not help redirecting commands to every sub-project
+- So I need to build all by packages,
+- Or define your own scripts for this task,
+- Or you combine this with TypeScript --build flag if it is a TypeScript projects
 
 ---
 
@@ -353,27 +358,27 @@ Or I combine this with TypeScript --build if I use TypeScript projects
 
 # [fit] **Why?**
 
-^ Where TypeScript --build gave you a central way to build projects,
-Yarn gives a central way to install dependencies for your project
-Think about combining this and you get almost a fancy MonoRepo solution
+^ - Where TypeScript --build gave you a central way to build projects,
+- Yarn gives a central way to install and manage dependencies for your projects
+- Think about combining this and you get almost a fancy MonoRepo solution
 
 ---
 
 _yarnpkg.com/docs/workspaces_
 
-^ Documentation
+^ - Documentation
 
 ---
 
 # Lerna
 
-^ Let's get to a more comprehensive way to manage multiple projects: Lerna
+^ - Let's get to a more comprehensive way to manage multiple projects: Lerna
 
 ---
 
 "Lerna is a tool that optimizes the workflow around managing multi-package repositories with git and npm."
 
-^ This means it gives you access to ... (next slide)
+^ - This means it gives you access to ... (next slide)
 
 ---
 
@@ -385,7 +390,8 @@ _yarnpkg.com/docs/workspaces_
 * Version management
 * Publishing
 
-^ Projects using Lerna: Babel, React, Angular and Jest
+^ // Go through list first.
+- Projects using Lerna e.g.: Babel, React, Angular and Jest
 
 ---
 
@@ -406,8 +412,8 @@ root/
     package.json
 ```
 
-^ This is how it could look like, with every projects by default inside `packages`
-The `lerna.json` file is the basic configuration (next slide)
+^ - This is how it could look like, with every projects by default inside `packages`
+- The `lerna.json` file is the basic configuration (next slide)
 
 ---
 
@@ -420,22 +426,22 @@ The `lerna.json` file is the basic configuration (next slide)
 }
 ```
 
-^ When using a command like `lerna init` this will be the created default
-Package versions are independent here (this was done by a flag)
-To generate this and get help creating a mono repo you can use: (next slide)
+^ - When using a command like `lerna init` this will be the created default
+- Package versions are independent here (this was done by a flag)
+- To generate this and get help creating a mono repo you can use: (next slide)
 
 ---
 
 `npx lerna init --independent`
 
-^ Hint: If creating a repo with Lerna you could combine this with Yarn workspaces as well
+^ - Hint: If creating a repo with Lerna you could combine this with Yarn workspaces as well (for default dependency hoisting)
 
 ---
 
 ## [fit] Run and execute
 
-^ Lerna now can execute or pass commands for you
-In your root `package.json` you can define this in two different ways (next slide)
+^ - Lerna now can execute or pass commands for you
+- In your root `package.json` you can define this in two different ways (next slide)
 
 ---
 
@@ -448,13 +454,15 @@ In your root `package.json` you can define this in two different ways (next slid
 }
 ```
 
-^ First version executes the npm-script `test` in all your packages
-The second version executes the command `rm` directly in every package
-Lerna can also handle versioning of your packages ... (next slide)
+^ - First version executes the npm-script `test` in all your packages
+- The second version executes the command `rm` directly in every package
+- Lerna can also handle versioning of your packages ... (next slide)
 
 ---
 
 `npx lerna version`
+
+^ - By executing this (next slide)
 
 ---
 
@@ -467,14 +475,15 @@ Lerna can also handle versioning of your packages ... (next slide)
 * Commits those changes and tags the commit.
 * Pushes to the git remote.
 
-^ This also gives you help for publishing ... (next slide)
+^ - You get the following (show list)
+- This also gives you help for publishing ... (next slide)
 
 ---
 
 `npx lerna publish`
 
-^ Executes `lerna version` and publish packages with new versions to your defined registry
-But Lerna can also ... (next slide)
+^ - Executes `lerna version` and publish packages with new versions to your defined registry
+- But Lerna can also ... (next slide)
 
 ---
 
@@ -485,47 +494,48 @@ But Lerna can also ... (next slide)
 * Conventional commits support
 * Hoist dependencies without Yarn
 
-^ For more features and details you can view the documentation here ... (next slide)
+^ // Show feature list
+- For more features and details you can view the documentation here ... (next slide)
 
 ---
 
 _lernajs.io_
 
-^ And if you want to start with Lerna there is a helpful tool (next slide)
+^ - And if you want to start with working with a Lerna Repo, there is a helpful tool (next slide)
 
 ---
 
 _github.com/szarouski/lerna-wizard_
 
-^ This gives you guidance for working with a Lerna MonoRepo
-And there is still option 4 ... (next slide)
+^ - This gives you guidance for working with a Lerna MonoRepo
+- And there is still option 4 ... (next slide)
 
 ---
 
 # Rush.js
 
-^ Developed by Microsoft
+^ - Developed by Microsoft
 
 ---
 
 "... JavaScript developers who build and publish many packages from a common Git repo."
 
-^ Taken from the Documentation
-Similar to Lerna, but with some differences (next slide)
+^ - Taken from the Documentation
+- Similar to Lerna, but with some differences (next slide)
 
 ---
 
 ## [fit] Configuration 🔧
 
-^ One of this is you have to configure more
-But this also gives you more options for the "How"
-For this you need to install rush ... (next slide)
+^ - One of this is you have to configure more
+- But this also gives you more options for the "How"
+- To get started you need to install rush ... (next slide)
 
 ---
 
 `npm i -g @microsoft/rush`
 
-^ Lets view the Rush.js repo setup: (next slide)
+^ - Lets view the Rush.js repo setup: (next slide)
 
 ---
 
@@ -548,8 +558,8 @@ root/
     rush.json
 ```
 
-^ There are category folder `apps` and `libraries` as well as a `common` that can contain configurations
-Also there is no root `package.json` but a `rush.json` for the basic configuration (next slide)
+^ - There are category folder `apps` and `libraries` as well as a `common` that can contain configurations
+- Also there is no root `package.json` but a `rush.json` for the basic configuration (next slide)
 
 ---
 
@@ -574,7 +584,7 @@ Also there is no root `package.json` but a `rush.json` for the basic configurati
 }
 ```
 
-^ This is how the `rush.json` looks like, but let's get through it step by step (next slide)
+^ - This is how the `rush.json` looks like, but let's get through it step by step (next slide)
 
 ---
 
@@ -587,8 +597,8 @@ Also there is no root `package.json` but a `rush.json` for the basic configurati
 }
 ```
 
-^ First line url to schema, second rush, third package manager, and node range
-Next two options ... (next slide)
+^ - First line url to schema, second rush, third package manager, and node range
+- Next two options ... (next slide)
 
 ---
 
@@ -599,7 +609,7 @@ Next two options ... (next slide)
 }
 ```
 
-^ ... enforce that category folder will be used for all projects
+^ - ... enforce that category folder will be used for all projects
 
 ---
 
@@ -618,16 +628,16 @@ Next two options ... (next slide)
 }
 ```
 
-^ And you have to specify all projects you use with package name and folder
-But there are more options
-This can be default generated with ... (next slide)
+^ - And you have to specify all projects you use with package name and folder
+- But there are more options
+- This can be default generated with ... (next slide)
 
 ---
 
 `rush init`
 
-^ This will give you good basic setup and create a `rush.json` with a lot of documentation for every option
-Some of the options are ... (next slide)
+^ - This will give you good basic setup and create a `rush.json` with a lot of documentation for every option
+- Some of the options are ... (next slide)
 
 ---
 
@@ -655,18 +665,16 @@ Some of the options are ... (next slide)
 }
 ```
 
-^ Restrict allowed emails
-And define commands ... (next slide)
+^ - Restrict allowed emails
+- And define commands ... (next slide)
 
 ---
 
-## [fit] Commands
-
----
+## Commands
 
 `common/config/rush/command-line.json`
 
-^ Located in its own configuration file, and could contain: (next slide)
+^ - Located in its own configuration file, and could contain: (next slide)
 
 ---
 
@@ -683,8 +691,8 @@ And define commands ... (next slide)
 }
 ```
 
-^ Bulk command that executes the npm-script `test` in every project
-But it could also be a global command:
+^ - Bulk command that executes the npm-script `test` in every project
+- But it could also be a global command:
 
 ---
 
@@ -702,6 +710,17 @@ But it could also be a global command:
 }
 ```
 
+^ // Explain global command
+- Info: The rush command can be executed everywhere inside your repository
+- This could look like (next slide)
+
+---
+
+```shell
+$ rush test
+$ rush deploy
+```
+
 ---
 
 [.autoscale: true]
@@ -714,23 +733,33 @@ But it could also be a global command:
 * Changelog generation
 * Scan and integrity checks
 
+^ // Go through list
+// One example for scans -> check dependencies
+- There is more (next slide)
+
 ---
 
 _rushjs.io_
 
-^ Lots more here
+^ - Lots more here
 
 ---
 
 # To much 😨
 
+^ - I know this can be a lot
+- But you can find all of the information here
+
 ---
 
 _github.com/MartinHelmut/mono_
 
-^ Here you can find not only the presentation
-But working examples for all these techniques
+^ - Here you can find not only the presentation
+- But working examples for all these techniques
+- The only thing I now can say ... (next slide)
 
 ---
 
-# [fit] Thanks
+# [fit] Thanks 🎉
+
+^ - And questions?
