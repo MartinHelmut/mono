@@ -161,8 +161,47 @@ root/
     tsconfig.json
 ```
 
-^ - Here is the folder structure and you already see that the `tsconfig.json` defines projects
-- The root `tsconfig.json` defines the basic compiler options ... (next slide)
+^ - Here is the folder structure and you already see that the `tsconfig.json` define the projects (next slide)
+
+---
+
+[.code-highlight: 5, 8]
+
+```
+root/
+    src/
+        app/
+            index.ts
+            tsconfig.json
+        utils/
+            index.ts
+            tsconfig.json
+        tsconfig.json
+    package.json
+    tsconfig.json
+```
+
+^ - The root `tsconfig.json` ... (next slide)
+
+---
+
+[.code-highlight: 11]
+
+```
+root/
+    src/
+        app/
+            index.ts
+            tsconfig.json
+        utils/
+            index.ts
+            tsconfig.json
+        tsconfig.json
+    package.json
+    tsconfig.json
+```
+
+^ - ... defines the basic compiler options. (next slide)
 
 ---
 
@@ -214,7 +253,27 @@ root/
 ```
 
 ^ // src/utils/tsconfig.json
-- This extends the source config, defines some compiler options like the needed `composite` and includes necessary files
+- This extends the source config and defines some compiler options ... (next slide)
+
+---
+
+[.code-highlight: 5-7]
+
+```json
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "baseUrl": "./",
+        "declarationMap": true,
+        "declaration": true,
+        "composite": true
+    },
+    "include": [ "src/**/*" ],
+    "exclude": [ "node_modules" ]
+}
+```
+
+^ - ... like the needed `composite`, `declaration`, ... and includes necessary files
 
 ---
 
@@ -242,8 +301,28 @@ import { getHello } from '../utils';
 }
 ```
 
-^ - The build command is `tsc --build`.
-- And can be used as ... (next slide)
+^ - The build command is `tsc --build` (next slide)
+
+---
+
+[.code-highlight: 6]
+
+```json
+{
+    "name": "root",
+    "private": true,
+    "main": "dist/src/app/index.js",
+    "scripts": {
+        "build": "tsc --build",
+        "start": "node dist/src/app/index.js"
+    },
+    "devDependencies": {
+        "typescript": "^3.2.1"
+    }
+}
+```
+
+^ - And can be used as ... (next slide)
 
 ---
 
@@ -302,7 +381,29 @@ root/
 
 ^ - Here is the folder structure
 - Here you see that this more resembles separated packages
-- The folder `@scope` is intended to get imports like: (next slide)
+- The folder `@scope` ... (next slide)
+
+---
+
+[.code-highlight: 2]
+
+```
+root/
+    @scope/
+        app/
+            src/
+                index.ts
+            package.json
+            tsconfig.json
+        utils/
+            src/
+                index.ts
+            package.json
+            tsconfig.json
+    package.json
+```
+
+^ - ... is intended to get imports like: (next slide)
 
 ---
 
@@ -333,9 +434,7 @@ import { getHello } from '@scope/utils';
 
 ---
 
-```shell
-$ yarn
-```
+`$ yarn`
 
 ^ - It will install all the dependencies on root level.
 - And connects the inner dependencies, e.g.: (next slide)
@@ -422,6 +521,29 @@ root/
 
 ---
 
+[.code-highlight: 13]
+
+```
+root/
+    packages/
+        app/
+            src/
+                index.ts
+            package.json
+            tsconfig.json
+        utils/
+            src/
+                index.ts
+            package.json
+            tsconfig.json
+    lerna.json
+    package.json
+```
+
+^ - ... and is located in the root of the project.
+
+---
+
 ```json
 {
     "packages": [
@@ -464,8 +586,38 @@ root/
 }
 ```
 
-^ - First version executes the npm-script `test` in all your packages
-- The second version executes the command `rm` directly in every package
+^ - First version executes the npm-script `test` in all your packages (next slide)
+
+---
+
+[.code-highlight: 3]
+
+```json
+{
+    "scripts": {
+        "test": "lerna run --parallel test",
+        "clean": "lerna exec -- rm -fr dist"
+    }
+}
+```
+
+^ - This one.
+- The second version ... (next slide)
+
+---
+
+[.code-highlight: 4]
+
+```json
+{
+    "scripts": {
+        "test": "lerna run --parallel test",
+        "clean": "lerna exec -- rm -fr dist"
+    }
+}
+```
+
+^ - ... executes the command `rm` directly in every package
 - Lerna can also handle versioning of your packages ... (next slide)
 
 ---
@@ -518,7 +670,7 @@ _lernajs.io_
 _github.com/szarouski/lerna-wizard_
 
 ^ - This gives you guidance for working with a Lerna MonoRepo
-- And there is still option 4 ... (next slide)
+- And now, there is still option 4 ... (next slide)
 
 ---
 
@@ -563,13 +715,67 @@ root/
                 index.ts
             package.json
             tsconfig.json
-    common/config/rush
+    common/
+        config/rush
         // ...
     rush.json
 ```
 
-^ - There are category folder `apps` and `libraries` as well as a `common` that can contain configurations
-- Also there is no root `package.json` but a `rush.json` for the basic configuration (next slide)
+^ - There are category folders ... (next slide)
+
+---
+
+[.code-highlight: 2, 8, 14]
+
+```
+root/
+    apps/
+        app/
+            src/
+                index.ts
+            package.json
+            tsconfig.json
+    libraries/
+        utils/
+            src/
+                index.ts
+            package.json
+            tsconfig.json
+    common/
+        config/rush
+        // ...
+    rush.json
+```
+
+^ - ... like `apps` and `libraries` as well as a `common` that can contain configurations
+- The naming and how many you need is up to you!
+- Also there is no root `package.json` ... (next slide)
+
+---
+
+[.code-highlight: 17]
+
+```
+root/
+    apps/
+        app/
+            src/
+                index.ts
+            package.json
+            tsconfig.json
+    libraries/
+        utils/
+            src/
+                index.ts
+            package.json
+            tsconfig.json
+    common/
+        config/rush
+        // ...
+    rush.json
+```
+
+^ - ... but a `rush.json` for the basic configuration (next slide)
 
 ---
 
@@ -607,7 +813,65 @@ root/
 }
 ```
 
-^ - First line url to schema, second rush, third package manager, and node range
+---
+
+[.code-highlight: 2]
+
+```json
+{
+    "$schema": ".../json-schemas/rush/v5/rush.schema.json",
+    "rushVersion": "5.5.2",
+    "pnpmVersion": "2.15.1",
+    "nodeSupportedVersionRange": ">=8.9.4 <11.0.0",
+}
+```
+
+^ - First line url to schema, ... (next slide)
+
+---
+
+[.code-highlight: 3]
+
+```json
+{
+    "$schema": ".../json-schemas/rush/v5/rush.schema.json",
+    "rushVersion": "5.5.2",
+    "pnpmVersion": "2.15.1",
+    "nodeSupportedVersionRange": ">=8.9.4 <11.0.0",
+}
+```
+
+^ - ... second is rush version, ... (next slide)
+
+---
+
+[.code-highlight: 4]
+
+```json
+{
+    "$schema": ".../json-schemas/rush/v5/rush.schema.json",
+    "rushVersion": "5.5.2",
+    "pnpmVersion": "2.15.1",
+    "nodeSupportedVersionRange": ">=8.9.4 <11.0.0",
+}
+```
+
+^ - ... third is package manager and version, ... (next slide)
+
+---
+
+[.code-highlight: 5]
+
+```json
+{
+    "$schema": ".../json-schemas/rush/v5/rush.schema.json",
+    "rushVersion": "5.5.2",
+    "pnpmVersion": "2.15.1",
+    "nodeSupportedVersionRange": ">=8.9.4 <11.0.0",
+}
+```
+
+^ - ... and last one is enforced node range
 - Next two options ... (next slide)
 
 ---
@@ -651,7 +915,7 @@ root/
 
 ---
 
-![inline autoplay](videos/lerna.mov)
+![inline autoplay](videos/rush.mov)
 
 ^ - Also, some of the options are ... (next slide)
 
