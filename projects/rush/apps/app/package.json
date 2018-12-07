@@ -13,7 +13,7 @@
     "test": "echo 'Many tests running ...'"
   },
   "dependencies": {
-    "@rush/utils": "1.0.0"
+    "@scope/utils": "1.0.0"
   },
   "devDependencies": {
     "typescript": "3.2.1"
