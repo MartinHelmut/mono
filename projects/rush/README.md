@@ -1,5 +1,12 @@
 # MonoRepo with Rush.js
 
+<p align="center">
+  <img
+    width="600"
+    src="https://raw.githubusercontent.com/MartinHelmut/mono/master/projects/rush/recording/rush-build.svg?sanitize=true"
+    alt="Animated SVG to show the basic project usage" />
+</p>
+
 [Visit project website](https://rushjs.io/)
 
 ## Environment

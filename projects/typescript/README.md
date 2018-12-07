@@ -1,5 +1,12 @@
 # MonoRepo with TypeScript
 
+<p align="center">
+  <img
+    width="600"
+    src="https://raw.githubusercontent.com/MartinHelmut/mono/master/projects/typescript/recording/typescript-build.svg?sanitize=true"
+    alt="Animated SVG to show the basic project usage" />
+</p>
+
 [Visit documentation website](https://www.typescriptlang.org/docs/handbook/project-references.html)
 
 ## Environment
