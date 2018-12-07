@@ -243,6 +243,11 @@ import { getHello } from '../utils';
 ```
 
 ^ - The build command is `tsc --build`.
+- And can be used as ... (next slide)
+
+---
+
+![inline autoplay](videos/typescript.mov)
 
 ---
 
@@ -435,6 +440,11 @@ root/
 `npx lerna init --independent`
 
 ^ - Hint: If creating a repo with Lerna you could combine this with Yarn workspaces as well (for default dependency hoisting)
+- In use Lerna could look like (next slide)
+
+---
+
+![inline autoplay](videos/lerna.mov)
 
 ---
 
@@ -637,7 +647,13 @@ root/
 `rush init`
 
 ^ - This will give you good basic setup and create a `rush.json` with a lot of documentation for every option
-- Some of the options are ... (next slide)
+- And then you can use it ... (next slide)
+
+---
+
+![inline autoplay](videos/lerna.mov)
+
+^ - Also, some of the options are ... (next slide)
 
 ---
 
