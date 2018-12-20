@@ -1025,7 +1025,7 @@ _rushjs.io_
 
 ---
 
-# To much 😨
+# Too much 😨
 
 ^ - I know this can be a lot
 - But you can find all of the information here
